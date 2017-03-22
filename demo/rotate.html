@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>:: 샘플 페이지 ::</title>
+	<meta name="decorator" content="default"/>
+
+	<meta charset="utf-8">
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
+	<meta name="robots" content="noindex, nofollow" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.5/es5-shim.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.5/es5-sham.js"></script>
+	<script src="../dist/rotate.js"></script>
+
+	<!-- user css start -->
+	<style type="text/css">
+		#layer{
+			 height:200px;
+			 background-color:red;
+		 }
+	</style>
+<!-- user css end -->
+</head>
+<body>
+
+<div id="layer"></div>
+
+<script>
+	var $el = document.getElementById("layer");
+
+	var handler1 = function(e, info) {
+		$el.innerHTML = info.isVertical?"vertical":"horizontal";
+	};
+	eg.rotate.on(handler1);
+
+	/*var handler2 = function() {
+	 console.log(2);
+	 }*/
+	//eg.rotate.on(handler2);
+
+	// unbind
+	// eg.rotate.off(handler2);
+
+</script>
+</body>
+</html>
