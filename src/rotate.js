@@ -147,7 +147,7 @@ export default (() => {
 				}
 			}
 
-			window.clearTimeout(rotateTimer);
+			rotateTimer && window.clearTimeout(rotateTimer);
 			rotateTimer = window.setTimeout(() => triggerRotate(e), 300);
 		}
 
@@ -194,6 +194,11 @@ export default (() => {
 				USER_LISTENERS.splice(0);
 				window.removeEventListener(ORIENTATION_CHANGE_EVENT, handler);
 			}
-		}
+		},
+
+		orientationChange: ORIENTATION_CHANGE_EVENT,
+		isVertical,
+		triggerRotate,
+		handler
 	};
 })();
