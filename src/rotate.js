@@ -196,9 +196,25 @@ export default (() => {
 			}
 		},
 
+		/**
+		 * Native event name used to detect rotate
+		 */
 		orientationChange: ORIENTATION_CHANGE_EVENT,
+
+		/**
+		 * Get device is in vertical mode
+		 * @return {Boolean)
+		 */
 		isVertical,
+
+		/**
+		 * Trigger rotate event
+		 */
 		triggerRotate,
+
+		/**
+		 * Event handler function
+		 */
 		handler
 	};
 })();
