@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2015 NAVER Corp.
+ * egjs projects are licensed under the MIT license
+ */
 import rotateInjector from "inject-loader!../../../src/rotate";
 
 const tutils = {
