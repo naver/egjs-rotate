@@ -1,11 +1,26 @@
 # egjs-rotate
 Tiny custom rotate event binder
 
+```js
+var handler = function(event, info) {
+    ...
+};
+
+// bind rotate event
+eg.rotate.on(handler);
+
+// unbind rotate event
+eg.rotate.off(handler);
+
+// or unbind all the rotate event binds
+eg.rotate.off();
+```
+
 ## Documentation
 * API Documentation
-    - Latest: [http://naver.github.io/egjs/latest/doc/eg.Flicking.html](http://naver.github.io/egjs/latest/doc/eg.totate.html)
-    - Specific version: [http://naver.github.io/egjs/[VERSION]/doc/eg.Flicking.html](http://naver.github.io/egjs/[VERSION]/doc/eg.rotate.html)
-* Variety of demos are available at [Codpen.io](http://codepen.io/egjs/pen/KVNamz).
+    - Latest: [http://naver.github.io/egjs/latest/doc/eg.rotate.html](http://naver.github.io/egjs/latest/doc/eg.rotate.html)
+    - Specific version: [http://naver.github.io/egjs/[VERSION]/doc/eg.rotate.html](http://naver.github.io/egjs/[VERSION]/doc/eg.rotate.html)
+* Variety of demos are available at [Codpen.io](http://codepen.io/collection/nLYYqP).
 
 ## Supported Browsers
 The following are the supported browsers.
@@ -21,7 +36,7 @@ If you find a bug, please report it to us using the [Issues](https://github.com/
 
 
 ## License
-egjs-flicking is released under the [MIT license](http://naver.github.io/egjs/license.txt).
+egjs-rotate is released under the [MIT license](http://naver.github.io/egjs/license.txt).
 
 ```
 Copyright (c) 2015 NAVER Corp.

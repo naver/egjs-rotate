@@ -5,24 +5,6 @@
 import {window, document} from "./browser";
 
 export default (() => {
-	/**
-	 * Tiny custom rotate event binder
-	 *
-	 * @ko 기기 회전에 따른 rotate 커스텀 이벤트 바인더
-	 * @name eg#rotate
-	 * @event
-	 * @param {Event} e Native event object<ko>네이티브 이벤트 객체</ko>
-	 * @param {Object} info The object of data to be sent when the event is fired<ko>이벤트가 발생할 때 전달되는 데이터 객체</ko>
-	 * @param {Boolean} info.isVertical The orientation of the device (true: portrait, false: landscape) <ko>기기의 화면 방향(true: 수직 방향, false: 수평 방향)</ko>
-	 * @support { "ios" : "7+", "an" : "2.1+ (except 3.x)"}
-	 * @example
-	 * // bind
-	 * eg.rotate.on(function(e, info){
-	 *      info.isVertical;
-	 * });
-	 * // unbind
-	 * eg.rotate.off();
-	 */
 	let beforeScreenWidth = -1;
 	let beforeVertical = null;
 	const USER_LISTENERS = [];   // user's event listener
@@ -158,10 +140,35 @@ export default (() => {
 		return undefined;
 	}
 
+	/**
+	 * Tiny custom rotate event binder
+	 * @ko 기기 회전에 따른 rotate 커스텀 이벤트 바인더
+	 * @namespace eg.rotate
+	 *
+	 * @param {Event} e Native event object<ko>네이티브 이벤트 객체</ko>
+	 * @param {Object} info The object of data to be sent when the event is fired<ko>이벤트가 발생할 때 전달되는 데이터 객체</ko>
+	 * @param {Boolean} info.isVertical The orientation of the device (true: portrait, false: landscape) <ko>기기의 화면 방향(true: 수직 방향, false: 수평 방향)</ko>
+	 * @support { "ios" : "7+", "an" : "2.1+ (except 3.x)"}
+	 * @example
+	 * var handler = function(e, info){
+	 *      info.isVertical;
+	 * }
+	 * // bind
+	 * eg.rotate.on(handler);
+	 *
+	 * // unbind
+	 * eg.rotate.off(handler);
+	 *
+	 * // unbind all event attached (call without listener param)
+	 * eg.rotate.off();
+	 */
 	return {
 		/**
 		 * Bind rotate event
-		 * @param {Function} listener listener function
+		 * @ko rotate 이벤트 바인딩
+		 * @memberof eg.rotate
+		 * @static
+		 * @param {Function} listener listener function <ko>이벤트 핸들러 함수</ko>
 		 */
 		on(listener) {
 			if (typeof(listener) !== "function") {
@@ -180,7 +187,10 @@ export default (() => {
 		/**
 		 * Unbind rotate event
 		 * Without param, will unbind all binded listeners
-		 * @param {Function} [listener] listener function
+		 * @ko rotate 이벤트 바인딩 해제. 파라미터 없이 호출되는 경우, 바인딩된 모든 이벤트를 해제한다.
+		 * @memberof eg.rotate
+		 * @static
+		 * @param {Function} [listener] listener function <ko>이벤트 핸들러 함수</ko>
 		 */
 		off(listener) {
 			if (typeof(listener) === "function") {
@@ -202,22 +212,35 @@ export default (() => {
 
 		/**
 		 * Native event name used to detect rotate
+		 * @ko roate 이벤트를 위해 사용된 네이티브 이벤트 명
+		 * @memberof eg.rotate
+		 * @property {String} event event name <ko>이벤 명</ko>
 		 */
 		orientationChange: ORIENTATION_CHANGE_EVENT,
 
 		/**
 		 * Get device is in vertical mode
-		 * @return {Boolean)
+		 * @ko 화면이 수직 방향인지 여부
+		 * @memberof eg.rotate
+		 * @static
+		 * @method
+		 * @return {Boolean} The orientation of the device (true: portrait, false: landscape) <ko>기기의 화면 방향(true: 수직 방향, false: 수평 방향)</ko>
+		 * @example
+		 *   eg.rotate.isVertical();  // Check if device is in portrait mode
 		 */
 		isVertical,
 
 		/**
 		 * Trigger rotate event
+		 * @memberof eg.rotate
+		 * @private
 		 */
 		triggerRotate,
 
 		/**
 		 * Event handler function
+		 * @memberof eg.rotate
+		 * @private
 		 */
 		handler
 	};
