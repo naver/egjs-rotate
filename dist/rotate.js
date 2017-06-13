@@ -92,9 +92,7 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
+exports.__esModule = true;
 
 var _browser = __webpack_require__(1);
 
@@ -360,9 +358,7 @@ exports.default = function () {
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
+exports.__esModule = true;
 /**
  * Copyright (c) 2015 NAVER Corp.
  * egjs projects are licensed under the MIT license

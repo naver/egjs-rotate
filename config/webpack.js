@@ -9,7 +9,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, "../dist"),
 		filename: "[name].js",
-		library: ["eg", "rotate"],
+		library: [pkg.namespace.eg, "rotate"],
 		libraryTarget: "umd"
 	},
 	devtool: "source-map",
@@ -24,8 +24,7 @@ module.exports = {
 						[
 							"es2015",
 							{
-								"loose": true,
-								"modules": false
+								"loose": true
 							}
 						]
 					]
