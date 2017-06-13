@@ -5,7 +5,7 @@
  * @egjs/rotate JavaScript library
  * https://github.com/naver/egjs-rotate
  * 
- * @version 2.0.0-beta
+ * @version 2.0.0-rc.1
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -25,9 +25,9 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	function __webpack_require__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-/******/
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -92,9 +92,7 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
+exports.__esModule = true;
 
 var _browser = __webpack_require__(1);
 
@@ -360,9 +358,7 @@ exports.default = function () {
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
+exports.__esModule = true;
 /**
  * Copyright (c) 2015 NAVER Corp.
  * egjs projects are licensed under the MIT license
@@ -389,10 +385,12 @@ var _rotate2 = _interopRequireDefault(_rotate);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-module.exports = _rotate2.default; /**
-                                    * Copyright (c) 2015 NAVER Corp.
-                                    * egjs projects are licensed under the MIT license
-                                    */
+_rotate2.default.VERSION = "2.0.0-rc.1"; /**
+                                          * Copyright (c) 2015 NAVER Corp.
+                                          * egjs projects are licensed under the MIT license
+                                          */
+
+module.exports = _rotate2.default;
 
 /***/ })
 /******/ ]);

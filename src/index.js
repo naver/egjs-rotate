@@ -4,4 +4,5 @@
  */
 import rotate from "./rotate";
 
+rotate.VERSION = "#__VERSION__#";
 module.exports = rotate;

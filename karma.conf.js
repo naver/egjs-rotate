@@ -79,13 +79,14 @@ module.exports = function(config) {
     captureTimeout: 60000
   };
 
+  karmaConfig.browsers.push(config.chrome ? "Chrome" : "PhantomJS");
+
   if(config.coverage) {
     karmaConfig.reporters.push("coverage");
     karmaConfig.coverageReporter = {
         type: 'html',
         dir: 'coverage'
     };
-    karmaConfig.browsers.push("PhantomJS");
     karmaConfig.webpack.module.rules.push(
       {
         test: /(\.js)$/,
@@ -97,10 +98,6 @@ module.exports = function(config) {
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     karmaConfig.singleRun = true;
-  } else {
-    // karmaConfig.browsers.push("PhantomJS");
-    karmaConfig.browsers.push("Chrome");
-    karmaConfig.singleRun = false;
   }
 
   config.set(karmaConfig);
