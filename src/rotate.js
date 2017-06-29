@@ -215,6 +215,7 @@ export default (() => {
 		 * @ko roate 이벤트를 위해 사용된 네이티브 이벤트 명
 		 * @memberof eg.rotate
 		 * @property {String} event event name <ko>이벤 명</ko>
+		 * @private
 		 */
 		orientationChange: ORIENTATION_CHANGE_EVENT,
 

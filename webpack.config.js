@@ -1,46 +1,42 @@
 var webpack = require("webpack");
-var CleanWebpackPlugin = require("clean-webpack-plugin");
-var WriteFilePlugin = require("write-file-webpack-plugin");
-var banner = require("./config/banner");
-var config = require("./config/webpack");
+var pkg = require("./package.json");
 var path = require("path");
+var StringReplacePlugin = require("string-replace-webpack-plugin");
 
-module.exports = function(env) {
-	env = env || {};
-
-	if (env.mode === "production") {
-		for (var p in config.entry) {
-			config.entry[p + ".min"] = config.entry[p];
-		}
-
-		config.module.rules.push({
+var config = {
+	entry: {
+		"rotate": "./src/index.js"
+	},
+	output: {
+		path: path.resolve(__dirname, "dist"),
+		filename: "[name].js",
+		library: [pkg.namespace.eg, "rotate"],
+		libraryTarget: "umd",
+		umdNamedDefine: true
+	},
+	externals: [],	
+	module: {
+		rules: [{
+			test: /\.js$/,
+			exclude: /node_modules/,
+			loader: "babel-loader"
+		},
+		{
 			test: /(\.js)$/,
-			loader: "eslint",
-			include: path.resolve(process.cwd(), "src"),
-			exclude: /(node_modules)/,
-			enforce: "pre"
-		});
+			loader: StringReplacePlugin.replace({
+				replacements: [{
+					pattern: /#__VERSION__#/ig,
+					replacement: function (match, p1, offset, string) {
+						return pkg.version;
+					}
+				}]
+			})
+		}]
+	},
+	plugins: [new StringReplacePlugin()]
+};
 
-		config.plugins.push(
-			new CleanWebpackPlugin(["dist"], {
-				root: path.resolve(__dirname),
-				verbose: true,
-				dry: false
-			}),
-			new webpack.optimize.UglifyJsPlugin({
-				include: /\.min\.js$/,
-				minimize: true
-			}),
-			new webpack.BannerPlugin(banner.common)
-		);
-
-	} else if (env.mode === "server") {
-		config.devServer = {
-			publicPath: "/dist/"
-		};
-
-		config.plugins.push(new WriteFilePlugin());
-	}
-
-	return config;
+module.exports = function (env) {
+	env = env || "development";
+	return require("./config/webpack.config." + env + ".js")(config);
 };

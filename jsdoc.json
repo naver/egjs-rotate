@@ -4,7 +4,7 @@
 		"dictionaries": ["jsdoc","closure"]
 	},
 	"source": {
-		"include": ["src", "README.md"],
+		"include": ["src", "README.md"  ], 
 		"includePattern": ".+\\.js(doc|x)?$",
 		"excludePattern": "(^|\\/|\\\\)_"
 	},
@@ -27,9 +27,9 @@
 		"default": {
 			"outputSourceFiles" : true
 		},
-		"applicationName": "eg.rotate",
+		"applicationName": "eg.Rotate",
 		"disqus": "egjs",
-		"googleAnalytics": "",
+		"googleAnalytics": "UA-70842526-22",
 		"openGraph": {
 			"title": "",
 			"type": "website",
@@ -38,13 +38,13 @@
 			"url": ""
 		},
 		"meta": {
-			"title": "eg.roate - API",
+			"title": "egjs::rotate - API",
 			"description": "Tiny custom rotate event binder",
-			"keyword": "UI Component, egjs, rotate, event"
+			"keyword": ""
 		},
 		"linenums": true,
 		"link": {
-			"canonical": "http://naver.github.io/egjs/latest/doc/eg.rotate.html"
+			"canonical": "http://naver.github.io/egjs-rotate/release/latest/doc/"
 		}
 	},
 	"markdown": {
