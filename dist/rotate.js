@@ -5,7 +5,7 @@
  * @egjs/rotate JavaScript library
  * 
  * 
- * @version 2.0.0-rc.1
+ * @version 2.0.0-rc
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')

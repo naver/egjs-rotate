@@ -1,6 +1,6 @@
 {
   "name": "@egjs/rotate",
-  "version": "2.0.0-rc.1",
+  "version": "2.0.0-rc",
   "description": "Tiny custom rotate event binder",
   "main": "dist/rotate.js",
   "es2015": "src/rotate.js",
