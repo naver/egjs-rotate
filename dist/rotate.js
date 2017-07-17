@@ -92,13 +92,11 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
+exports.__esModule = true;
 
 var _browser = __webpack_require__(1);
 
-exports.default = function () {
+exports["default"] = function () {
 	var beforeScreenWidth = -1;
 	var beforeVertical = null;
 	var USER_LISTENERS = []; // user's event listener
@@ -354,6 +352,9 @@ exports.default = function () {
       * egjs projects are licensed under the MIT license
       */
 
+
+module.exports = exports["default"];
+
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -361,9 +362,7 @@ exports.default = function () {
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
+exports.__esModule = true;
 /**
  * Copyright (c) 2015 NAVER Corp.
  * egjs projects are licensed under the MIT license
@@ -388,12 +387,12 @@ var _rotate = __webpack_require__(0);
 
 var _rotate2 = _interopRequireDefault(_rotate);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-module.exports = _rotate2.default; /**
-                                    * Copyright (c) 2015 NAVER Corp.
-                                    * egjs projects are licensed under the MIT license
-                                    */
+module.exports = _rotate2["default"]; /**
+                                       * Copyright (c) 2015 NAVER Corp.
+                                       * egjs projects are licensed under the MIT license
+                                       */
 
 /***/ })
 /******/ ]);
