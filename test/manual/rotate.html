@@ -19,7 +19,7 @@
 <body>
  <div id="layer"></div>
  <script>
- eg.rotate.on((e, info) => {
+ eg.rotate.on(function(e, info) {
 	 document.getElementById("layer").innerHTML = info.isVertical?"vertical":"horizontal";
  });
 </script>
