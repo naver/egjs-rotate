@@ -205,4 +205,5 @@ doc/
 report/
 temp/
 dist/
-demo/release
+demo/release/
+demo/_data/version.yml

@@ -30,7 +30,7 @@ const tutils = {
 
 		return rotateInjector({
 			"./browser": injector
-		}).default;
+		});
 	}
 }
 
