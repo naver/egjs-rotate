@@ -8,10 +8,20 @@
 	<script src="{{ dist }}"></script>
 {% endfor %}
 <script>
+	var homeUrl = window.location.href;
+	if (homeUrl.indexOf("#") !== -1) {
+		homeUrl = homeUrl.substr(0, homeUrl.indexOf("#"));
+	}
+	homeUrl = homeUrl
+		.replace("/index.html", "/")
+		.replace("/gallery.html", "/");
+	if (homeUrl[homeUrl.length-1] !== "/") {
+		homeUrl += "/";
+	};
+	window.HOMELINK = homeUrl;
 	window.LIBLINK = [];
 	{% for dist in site.data.egjs.dist %}
-	window.LIBLINK.push(window.location.href.replace("/index.html", "/")
-            .replace("/gallery.html", "/") + "{{ dist }}");
+	window.LIBLINK.push(window.HOMELINK + "{{ dist }}");
 	{% endfor %}
 </script>
 <body>
@@ -28,7 +38,7 @@
 			</div>
 		</div>
 	</section>
-	<!--<section id="docs" class="docs section demos">
+	<section id="docs" class="docs section demos">
 		<div class="container">
 			<div class="docs-inner">
 				<h2 class="title text-center">Demos</h2>
@@ -36,7 +46,7 @@
 				{{ demo | markdownify }}
 			</div>
 		</div>
-	</section>-->
+	</section>
 </div>
 {% include footer.html %}
 {% for js in site.data.egjs.js %}
