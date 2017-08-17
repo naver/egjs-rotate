@@ -3,6 +3,7 @@ home: //naver.github.io/egjs
 desc: Tiny custom rotate event binder
 dist:
 - release/latest/dist/rotate.min.js
+hashtag: "#mobile #portrait #landscape"
 GA: UA-70842526-22
 github:
   user: naver
