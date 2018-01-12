@@ -7,11 +7,11 @@ import {window, document} from "./browser";
 export default (() => {
 	let beforeScreenWidth = -1;
 	let beforeVertical = null;
-	const USER_LISTENERS = [];   // user's event listener
+	const USER_LISTENERS = []; // user's event listener
 
 	const agent = (() => {
 		const ua = window.navigator.userAgent;
-		const match = ua.match(/(iPhone OS|CPU OS|Android)\s([^\s;-]+)/);  // fetch Android & iOS env only
+		const match = ua.match(/(iPhone OS|CPU OS|Android)\s([^\s;-]+)/); // fetch Android & iOS env only
 		const res = {
 			os: "",
 			version: ""
