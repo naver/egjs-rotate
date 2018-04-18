@@ -27,10 +27,6 @@ export default (() => {
 
 	const isMobile = /android|ios/.test(agent.os);
 
-	if (!isMobile) {
-		return undefined;
-	}
-
 	/**
 	 * Return event name string for orientationChange according browser support
 	 */

@@ -166,30 +166,4 @@ describe("rotate: handler", function() {
 		expect(spy.called).to.be.true;
 		expect(isVertical).to.be.false;
 	});
-
-	it("orientationChange : mac(PC) ", () => {
-		// Given
-		Object.assign(fakeWindow, {
-			navigator: {
-				userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/600.3.18 (KHTML, like Gecko) Version/8.0.3 Safari/600.3.18"
-			}
-		});
-
-		mockRotate = tutils.getMock(fakeWindow, fakeDocument);
-
-		// Invocation of rotate in mac Browser returns null
-		expect(mockRotate).to.be.undefined;
-
-		// When
-		Object.assign(fakeWindow, {
-			navigator: {
-				userAgent: "Mozilla/5.0 (Windows NT 6.1; WOW64; APCPMS=^N20120502090046254556C65BBCE3E22DEE3F_28573^; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E; InfoPath.3; TCO_20161104143520; rv:11.0) like Gecko"
-			}
-		});
-
-		mockRotate = tutils.getMock(fakeWindow, fakeDocument);
-
-		// Invocation of rotate in windows Browser returns null
-		expect(mockRotate).to.be.undefined;
-	});
 });
