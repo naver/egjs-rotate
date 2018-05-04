@@ -93,7 +93,6 @@ describe("rotate", function() {
 			};
 
 			const mockRotate = tutils.getMock(fakeWindow, fakeDocument);
-			mockRotate.isVertical()
 
 			// When
 			fakeDocument.documentElement.clientWidth = 100;
