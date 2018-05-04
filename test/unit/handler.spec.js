@@ -177,8 +177,10 @@ describe("rotate: handler", function() {
 
 		mockRotate = tutils.getMock(fakeWindow, fakeDocument);
 
-		// Invocation of rotate in mac Browser returns null
-		expect(mockRotate).to.be.undefined;
+		// Invocation of rotate in mac Browser returns function returning 'false'
+		Object.keys(mockRotate).forEach(v => {
+			expect(mockRotate[v]()).to.be.false;
+		});
 
 		// When
 		Object.assign(fakeWindow, {
@@ -189,7 +191,9 @@ describe("rotate: handler", function() {
 
 		mockRotate = tutils.getMock(fakeWindow, fakeDocument);
 
-		// Invocation of rotate in windows Browser returns null
-		expect(mockRotate).to.be.undefined;
+		// Invocation of rotate in windows Browser returns function returning 'false'
+		Object.keys(mockRotate).forEach(v => {
+			expect(mockRotate[v]()).to.be.false;
+		});
 	});
 });

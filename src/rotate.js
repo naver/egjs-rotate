@@ -14,7 +14,8 @@ export default (() => {
 		const match = ua.match(/(iPhone OS|CPU OS|Android)\s([^\s;-]+)/); // fetch Android & iOS env only
 		const res = {
 			os: "",
-			version: ""
+			version: "",
+			ua
 		};
 
 		if (match) {
@@ -25,10 +26,17 @@ export default (() => {
 		return res;
 	})();
 
-	const isMobile = /android|ios/.test(agent.os);
+	const isMobile = /android|ios/.test(agent.os) || /Mobi/.test(agent.ua);
 
+	// for non-mobile, will return an empty function methods
 	if (!isMobile) {
-		return undefined;
+		const fn = () => false;
+
+		return {
+			on: fn,
+			off: fn,
+			isVertical: fn
+		};
 	}
 
 	/**
@@ -141,10 +149,16 @@ export default (() => {
 	}
 
 	/**
-	 * Tiny custom rotate event binder
+	 * Tiny custom rotate event binder.
+	 * > **NOTE:**
+	 * > - It works for mobile environment only.
+	 * > - For non-mobile environment, every methods will return 'false'.
+	 *
+	 * > **참고:**
+	 * > - 모바일 환경에서만 동작 합니다.
+	 * > - 비모바일 환경에서는 모든 메서드들은 'false'를 반환합니다.
 	 * @ko 기기 회전에 따른 rotate 커스텀 이벤트 바인더
 	 * @namespace eg.rotate
-	 *
 	 * @param {Event} e Native event object<ko>네이티브 이벤트 객체</ko>
 	 * @param {Object} info The object of data to be sent when the event is fired<ko>이벤트가 발생할 때 전달되는 데이터 객체</ko>
 	 * @param {Boolean} info.isVertical The orientation of the device (true: portrait, false: landscape) <ko>기기의 화면 방향(true: 수직 방향, false: 수평 방향)</ko>
