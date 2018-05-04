@@ -1,9 +1,8 @@
-var webpack = require("webpack");
-var pkg = require("./package.json");
-var path = require("path");
-var StringReplacePlugin = require("string-replace-webpack-plugin");
+const pkg = require("./package.json");
+const path = require("path");
+const StringReplacePlugin = require("string-replace-webpack-plugin");
 
-var config = {
+const config = {
 	entry: {
 		"rotate": "./src/index.js"
 	},
@@ -14,7 +13,7 @@ var config = {
 		libraryTarget: "umd",
 		umdNamedDefine: true
 	},
-	externals: [],	
+	externals: [],
 	module: {
 		rules: [{
 			test: /\.js$/,
@@ -33,10 +32,9 @@ var config = {
 			})
 		}]
 	},
-	plugins: [new StringReplacePlugin()]
+	plugins: [new StringReplacePlugin()],
+	stats: "minimal",
+	mode: "none"
 };
 
-module.exports = function (env) {
-	env = env || "development";
-	return require("./config/webpack.config." + env + ".js")(config);
-};
+module.exports = (env) => require(`./config/webpack.config.${env || "development"}.js`)(config);

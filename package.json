@@ -21,7 +21,8 @@
     "demo:setup": "cpx 'node_modules/@egjs/common-demo/**/*' 'demo/' && rm demo/package.json",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "prepush": "npm run lint",
-    "commitmsg": "node config/validate-commit-msg.js"
+    "commitmsg": "node config/validate-commit-msg.js",
+    "changelog": "node ./config/changelog.js"
   },
   "author": {
     "name": "NAVER Corp."
@@ -29,7 +30,11 @@
   "namespace": {
     "eg": "eg"
   },
-  "license": "MIT",
+  "homepage": "https://github.com/naver/egjs-rotate",
+  "license": "MIT <https://naver.github.io/egjs/license.txt>",
+  "bugs": {
+    "url": "https://github.com/naver/egjs-rotate/issues"
+  },
   "devDependencies": {
     "@egjs/common-demo": "github:naver/egjs#common-demo",
     "babel-core": "^6.26.3",
@@ -67,8 +72,10 @@
     "uglify-js": "^3.3.23",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^4.6.0",
+    "webpack-cli": "^2.1.2",
     "webpack-dev-server": "^3.1.4",
     "webpack-merge": "^4.1.2",
-    "write-file-webpack-plugin": "^4.1.0"
+    "write-file-webpack-plugin": "^4.1.0",
+    "xml2js": "^0.4.19"
   }
 }
